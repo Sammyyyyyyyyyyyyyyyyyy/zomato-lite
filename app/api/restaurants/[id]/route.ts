@@ -6,7 +6,9 @@ const sql = neon(process.env.DATABASE_URL!);
 // Always compute at request time — never cache this endpoint.
 export const dynamic = "force-dynamic";
 
-function toReviewDto(row: { id: number; rating: number; comment: string; created_at: string }) {
+type ReviewRow = { id: number; rating: number; comment: string; created_at: string };
+
+function toReviewDto(row: ReviewRow) {
   return {
     id: row.id,
     rating: row.rating,
@@ -47,9 +49,9 @@ export async function GET(_request: Request, context: { params: Promise<{ id: st
   );
 
   // Newest review is shown separately on the page, so the list excludes it.
-  const latestReview =
-    reviewsResult.length > 0 ? toReviewDto(reviewsResult[0]) : null;
-  const reviews = reviewsResult.slice(1).map(toReviewDto);
+  const rows = reviewsResult as ReviewRow[];
+  const latestReview = rows.length > 0 ? toReviewDto(rows[0]) : null;
+  const reviews = rows.slice(1).map(toReviewDto);
 
   return NextResponse.json({
     name: restaurant.name,
