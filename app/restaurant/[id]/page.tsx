@@ -17,7 +17,7 @@ type RestaurantData = {
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <span className="text-amber-600" aria-label={`${rating} out of 5 stars`}>
+    <span className="text-rose-600" aria-label={`${rating} out of 5 stars`}>
       {"★★★★★".slice(0, rating)}
       <span className="text-stone-300">{"★★★★★".slice(rating)}</span>
     </span>
@@ -37,7 +37,7 @@ function LinkButton({ href, children }: { href: string; children: React.ReactNod
   return (
     <Link
       href={href}
-      className="inline-block rounded-full border border-stone-300 px-5 py-2 text-sm font-medium text-stone-800 transition-colors hover:border-amber-600 hover:text-amber-700"
+      className="inline-block rounded-full border border-stone-300 px-5 py-2 text-sm font-medium text-stone-800 transition-colors hover:border-rose-600 hover:text-rose-700"
     >
       {children}
     </Link>
@@ -97,8 +97,8 @@ export default function RestaurantPage() {
       </section>
 
       {data.latestReview ? (
-        <article className="mt-12 rounded-xl border border-amber-200 bg-amber-50/60 p-5">
-          <p className="text-xs font-medium uppercase tracking-widest text-amber-700">
+        <article className="mt-12 rounded-xl border border-rose-200 bg-rose-50/60 p-5">
+          <p className="text-xs font-medium uppercase tracking-widest text-rose-700">
             Latest review
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-2">

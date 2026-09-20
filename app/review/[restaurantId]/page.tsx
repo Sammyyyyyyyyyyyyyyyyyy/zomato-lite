@@ -82,7 +82,7 @@ export default function ReviewPage() {
                 onMouseEnter={() => setHover(value)}
                 onMouseLeave={() => setHover(0)}
                 className={`text-4xl leading-none transition-colors ${
-                  (hover || rating) >= value ? "text-amber-600" : "text-stone-300"
+                  (hover || rating) >= value ? "text-rose-600" : "text-stone-300"
                 }`}
               >
                 ★
@@ -98,7 +98,7 @@ export default function ReviewPage() {
             onChange={(e) => setComment(e.target.value)}
             rows={4}
             placeholder="What did you think?"
-            className="mt-3 w-full rounded-xl border border-stone-300 bg-white p-4 text-stone-900 placeholder:text-stone-400 focus:border-amber-600 focus:outline-none"
+            className="mt-3 w-full rounded-xl border border-stone-300 bg-white p-4 text-stone-900 placeholder:text-stone-400 focus:border-rose-600 focus:outline-none"
           />
         </label>
 
@@ -111,7 +111,7 @@ export default function ReviewPage() {
         <button
           type="submit"
           disabled={!canSubmit}
-          className="w-full rounded-full bg-amber-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-amber-700 disabled:cursor-not-allowed disabled:bg-stone-200 disabled:text-stone-400"
+          className="w-full rounded-full bg-rose-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-rose-700 disabled:cursor-not-allowed disabled:bg-stone-200 disabled:text-stone-400"
         >
           {submitting ? "Sending…" : "Submit review"}
         </button>
